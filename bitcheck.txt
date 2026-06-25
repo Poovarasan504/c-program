@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+#define bit_check(a,k) (a & (1<<k))
+
+int main() {
+   int a,k;
+   scanf("%d %d",&a,&k);
+   a=bit_check(a,k);
+   if(a) printf("set");
+   else printf("not");
+   
+}

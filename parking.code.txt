@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+typedef struct {
+    int big;
+    int med;
+    int small;
+} parking;
+
+void addcar(parking *systems) {
+    int n[50], i = 0;
+    int big = 0, med = 0, small = 0;
+
+    while (i < 50) {
+        int b_tok = 0, m_tok = 0, s_tok = 0;
+
+        scanf("%d", &n[i]);
+
+        if (n[i] == 1) {
+            big++;
+            b_tok = 1;
+        }
+        else if (n[i] == 2) {
+            med++;
+            m_tok = 1;
+        }
+        else if (n[i] == 3) {
+            small++;
+            s_tok = 1;
+        }
+
+        if (b_tok == 1) {
+            if (big > systems->big)
+                printf("not enough big space\n");
+        }
+
+        if (m_tok == 1) {
+            if (med > systems->med)
+                printf("not enough medium space\n");
+        }
+
+        if (s_tok == 1) {
+            if (small > systems->small)
+                printf("not enough small space\n");
+        }
+
+        i++;
+    }
+}
+
+int main() {
+    parking systems;
+
+    scanf("%d %d %d",
+          &systems.big,
+          &systems.med,
+          &systems.small);
+
+    addcar(&systems);
+
+    return 0;
+}
