@@ -1,0 +1,48 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+void long_sub(char *str){
+    int i=0,a=0,b=0,pali=1,j,k=0,len,cur_len=0,ind,cur_ind;
+    char str1[20],str2[20];
+    while(str[k]!='\0'){
+        i=k;
+        a=0;
+        str1[0]='\0';
+        str2[0]='\0';
+      while(str[i]!='\0'){
+        ind=k;
+        pali=1;
+        b=0;
+        str1[a]=str[i];
+        for( j=a;j>=0;j--){
+            str2[b]=str1[j];
+            b++;
+        }
+        
+        
+         for(j=0;j<b;j++){
+             
+             if(str1[j]!=str2[j]) pali=0;
+         } 
+         len=b;
+        // printf("%d %d\n",pali,len);
+         if((pali==1)&&(len>cur_len)){
+             cur_len=len;
+             cur_ind=ind;
+              
+         }
+        a++;
+        i++;}
+      k++; 
+    }
+  for(i=cur_ind;i<cur_ind+cur_len;i++){
+      printf("%c",str[i]);
+  }
+}
+
+int main() {
+    // Write C code here
+    char a[20];
+    scanf("%s",&a);
+    long_sub(a);
+    
+}
