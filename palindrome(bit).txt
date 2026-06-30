@@ -1,0 +1,26 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdint.h>
+
+uint8_t reverse(uint8_t a){
+  uint8_t c=0;
+  int b;
+  for(int i =0;i<8;i++){
+      b=(a>>i)&1;
+      c|=(b<<(7-i));
+  }
+  return c;
+}
+int pali(uint8_t a){
+    uint8_t b=reverse(a);
+    if (a==b) return 1;
+    return 0;
+}
+int main (){
+    uint8_t a;
+    int b;
+    scanf("%hhx",&a);
+    b=pali(a);
+    if(b) printf("pali");
+    else printf("not pali");
+}
