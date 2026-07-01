@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void closet_sum(int n,int *arr,int target){
+    int i,j,k,closet_sum=100,diff,ii,jj,kk;
+    for( i=0;i<n-2;i++){
+        for (j=i+1;j<n-1;j++){
+            for(k=j+1;k<n;k++){
+              diff=(i+j+k)-target;
+              if(diff<0) diff*-1;
+              if(diff<closet_sum){
+                  closet_sum=diff;
+                  ii=i,jj=j,kk=k;
+                  
+              }
+            }
+        }
+    }
+    printf("%d",closet_sum);
+}
+
+int main(){
+    int arr[20],n,target;
+    scanf("%d %d",&n,&target);
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    closet_sum(n,arr,target);
+}
